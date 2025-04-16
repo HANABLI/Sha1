@@ -11,7 +11,7 @@ option(SHA1_TESTS_LONG_TEST_VECTOR "Include insane long test vector (it takes mo
 set(Sources src/Sha1Tests.cpp)
 
 add_executable(${this} ${Sources})
-set_target_properties(${this} PROPERTIES 
+set_target_properties(${this} PROPERTIES
     FOLDER Tests
 )
 
@@ -24,4 +24,9 @@ target_include_directories(${this} PRIVATE ..)
 target_link_libraries(${this} PUBLIC
     gtest_main
     Sha1
+)
+
+add_test(
+    NAME ${this}
+    COMMAND ${this}
 )

@@ -41,4 +41,14 @@ TEST(Sha1Tests, Sha1Tests_HashLongTestVector_Test) {
     { builder << test.input; }
     EXPECT_EQ(test.output, Sha1::Sha1String(builder.str()));
 }
+
 #endif /* INCLUDE_SHA1_TEST_LONG_VECTOR */
+
+TEST(Sha1Tests, HashToByteVector) {
+    EXPECT_EQ(
+        (std::vector<uint8_t>{0xa9, 0x99, 0x3e, 0x36, 0x47, 0x06, 0x81, 0x6a, 0xba, 0x3e, 0x25,
+                              0x71, 0x78, 0x50, 0xc2, 0x6c, 0x9c, 0xd0, 0xd8, 0x9d
+
+        }),
+        Sha1::Sha1Bytes("abc"));
+}
